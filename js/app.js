@@ -1,4 +1,4 @@
-new Vue ({
+new Vue({
     el: '#app',
     data: {
         playerHealth: 100,
@@ -19,7 +19,7 @@ new Vue ({
             this.monsterHealth -= damage;
             this.turns.unshift({
                 isPlayer: true,
-                text: 'Payer hits Monster for ' + damage
+                text: 'Player hits Monster for ' + damage
             });
             if(this.checkWin()){
                 return;
@@ -28,11 +28,11 @@ new Vue ({
             this.monsterAttacks();
         },
         specialAttack: function () {
-            var damage = this.calculateDamage(10, 20)
+            var damage = this.calculateDamage(10, 20);
             this.monsterHealth -= damage;
             this.turns.unshift({
                 isPlayer: true,
-                text: 'Payer hits Monster hard for ' + damage
+                text: 'Player hits Monster hard for ' + damage
             });
             if (this.checkWin()) {
                 return;
@@ -48,7 +48,7 @@ new Vue ({
             }
             this.turns.unshift({
                 isPlayer: true,
-                text: 'Payer heals Monster for 10'
+                text: 'Player heals for 10'
             });
             this.calculateDamage(10, 20)
             this.monsterAttacks();
@@ -58,7 +58,7 @@ new Vue ({
 
         },
         monsterAttacks: function(){
-            var damager = this.calculateDamage(5, 12);
+            var damage = this.calculateDamage(5, 12);
             this.playerHealth -= damage;
             this.checkWin();
             this.turns.unshift({
